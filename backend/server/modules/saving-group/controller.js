@@ -17,5 +17,5 @@ export const getAllSavingGroups = async (req, res) => {
   } catch (e) {
     return res.status(e.status).json({ error: true, message: 'Error with Saving Group' });
   }
-}
+};
 
