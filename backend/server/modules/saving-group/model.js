@@ -14,6 +14,6 @@ const SavingGroupSchema = new Schema({
     type: String,
     required: true,
   },
-});
+}, { timestamps: true });
 
 export default mongoose.model('Meetup', SavingGroupSchema);

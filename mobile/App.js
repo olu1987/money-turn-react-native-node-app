@@ -9,7 +9,7 @@ export default class App extends React.Component {
 
   async componentDidMount() {
     function getMoviesFromApiAsync(){
-      return fetch('http://192.168.1.14:3000/api/saving-group')
+      return fetch('http://192.168.0.25:3000/api/saving-group')
         .then((response) => response.json())
         .then((responseJson) =>  {
           console.log(responseJson);
