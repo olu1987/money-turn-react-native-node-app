@@ -1,8 +1,8 @@
 import SavingGroup from './model';
 
 export const createSavingGroup = async (req, res) => {
-  const { title, payment, description } = req.body;
-  const newSavingGroup = new SavingGroup({ title, payment, description });
+  const { title, payment, description, member } = req.body;
+  const newSavingGroup = new SavingGroup({ title, payment, description, member });
 
   try {
     return res.status(201).json({ savingGroup: await newSavingGroup.save() });

@@ -14,6 +14,7 @@ const SavingGroupSchema = new Schema({
     type: String,
     required: true,
   },
+  members: [Schema.Types.ObjectId],
 }, { timestamps: true });
 
-export default mongoose.model('Meetup', SavingGroupSchema);
+export default mongoose.model('saving-group', SavingGroupSchema);
