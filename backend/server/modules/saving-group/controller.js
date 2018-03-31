@@ -20,10 +20,18 @@ export const getAllSavingGroups = async (req, res) => {
 };
 
 export const addMember = async (req, res) => {
-  const { groupId } = req.params;
-  console.log(groupId);
+  const { group } = req.params;
+  const { user } = req.body;
   try {
-    return res.status(200).json({ savingGroups: await SavingGroup.findOne({ _id: groupId }) });
+    return res.status(200).json({
+      savingGroups: await SavingGroup.findByIdAndUpdate(
+        group, { $push: { members: user } },
+        { safe: true, upsert: true },
+        (err, model) => {
+          console.log(err);
+        },
+      ),
+    });
   } catch (e) {
     return res.status(e.status).json({ error: true, message: 'Error with Saving Group' });
   }
