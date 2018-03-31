@@ -19,3 +19,14 @@ export const getAllSavingGroups = async (req, res) => {
   }
 };
 
+export const addMember = async (req, res) => {
+  const { groupId } = req.params;
+  console.log(groupId);
+  try {
+    return res.status(200).json({ savingGroups: await SavingGroup.findOne({ _id: groupId }) });
+  } catch (e) {
+    return res.status(e.status).json({ error: true, message: 'Error with Saving Group' });
+  }
+};
+
+

@@ -1,7 +1,7 @@
 import express from 'express';
 import dbConfig from './config/db';
 import middlewaresConfig from './config/middlewares';
-import { SavingGroupRoutes } from './modules';
+import { SavingGroupRoutes, userRoutes } from './modules';
 
 const app = express();
 
@@ -19,7 +19,7 @@ app.use((req, res, next) => {
   next();
 });
 
-app.use('/api', [SavingGroupRoutes]);
+app.use('/api', [SavingGroupRoutes, userRoutes]);
 
 const PORT = process.env.PORT || 3000;
 
