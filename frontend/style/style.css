@@ -10,3 +10,7 @@ td, th {
 svg {
     height: 150px;
 }
+
+.group-actions{
+   align-items: center; 
+}

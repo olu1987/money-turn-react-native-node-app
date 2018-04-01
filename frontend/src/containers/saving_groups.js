@@ -19,13 +19,20 @@ class SavingGroups extends Component {
     return (
       <tr key={_id}>
         <td>
-          <h1>{ title }</h1>
-          <h2>Payment Level - £{ payment }</h2>
-          <p>{ description }</p>
-        </td>
-        <td>
-            <a href="#" className="btn btn-lg btn-primary text-uppercase">Join group</a>
-            <a href="#" className="btn btn-lg btn-danger text-uppercase ml-1">Leave group</a>
+          <div className="row">
+            <div className="col-sm-6">
+                <h1>{ title }</h1>
+                <h2>Payment Level - £{ payment }</h2>
+                <p>{ description }</p>
+            </div>
+            <div className="col-sm-6 group-actions">
+               <p>
+                 Current Members
+               </p>
+                <a href="#" className="btn btn-lg btn-primary text-uppercase mb-1">Join group</a>
+                <a href="#" className="btn btn-lg btn-danger text-uppercase mb-1 ml-1">Leave group</a>
+            </div>
+          </div>
         </td>
       </tr>
     );
@@ -36,7 +43,7 @@ class SavingGroups extends Component {
     return (
       <table className="table table-striped">
         <th colSpan="2">
-          <h1 className="text-center light">Your Saving Groups</h1>
+          <h1 className="text-center display-4">Your Saving Groups</h1>
         </th>
         <tbody>
           {this.props.savingGroups.map(this.renderGroups)}
