@@ -19,6 +19,18 @@ class SavingGroups extends Component {
           <div>Hello Money Turns</div>
         )
     }
+
+    renderGroups(group){
+        const name = cityData.city.name;
+
+        return(
+            <tr key={name}>
+                <td>{name}</td>
+                <td>
+                </td>
+            </tr>
+        )
+    }
 }
 
 const mapStateToProps = state => {
