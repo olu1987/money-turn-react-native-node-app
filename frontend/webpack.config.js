@@ -23,8 +23,8 @@ module.exports = {
     historyApiFallback: true,
     contentBase: './',
       watchOptions: {
-    aggregateTimeout: 300,
-        poll: 1000
-}
+          aggregateTimeout: 300,
+          poll: 1000
+    }
   }
 };
