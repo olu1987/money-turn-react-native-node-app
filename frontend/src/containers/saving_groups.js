@@ -14,24 +14,34 @@ class SavingGroups extends Component {
   }
 
   renderGroups(group) {
-    const { title, description } = group;
+    const { title, description, payment, _id } = group;
 
     return (
-      <div>
-        <h1>{ title }</h1>
-        <p>{ description }</p>
-        <div>
-          <a href="#" className="btn btn-lg btn-primary text-uppercase">Join group</a>
-          <a href="#" className="btn btn-lg btn-danger text-uppercase ml-1">Leave group</a>
-        </div>
-      </div>
+      <tr key={_id}>
+        <td>
+          <h1>{ title }</h1>
+          <h2>Payment Level - £{ payment }</h2>
+          <p>{ description }</p>
+        </td>
+        <td>
+            <a href="#" className="btn btn-lg btn-primary text-uppercase">Join group</a>
+            <a href="#" className="btn btn-lg btn-danger text-uppercase ml-1">Leave group</a>
+        </td>
+      </tr>
     );
   }
 
   render() {
-    console.log();
+    console.log(this.props);
     return (
-      <div>{this.props.savingGroups.map(this.renderGroups)}</div>
+      <table className="table table-striped">
+        <th colSpan="2">
+          <h1 className="text-center light">Your Saving Groups</h1>
+        </th>
+        <tbody>
+          {this.props.savingGroups.map(this.renderGroups)}
+        </tbody>
+      </table>
     );
   }
 }
