@@ -1,0 +1,3 @@
+export default {
+  FETCH_ALL_SAVING_GROUPS: 'FETCH_ALL_SAVING_GROUPS'
+}

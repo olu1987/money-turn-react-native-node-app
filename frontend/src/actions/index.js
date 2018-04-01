@@ -1,16 +1,16 @@
 import axios from 'axios';
+import actionTypes from '../action-types';
 
-const API_KEY = '03643ce8eab7f0110b0eeb23990c2f53';
-const ROOT_URL = `http://api.openweathermap.org/data/2.5/forecast?appid=${API_KEY}`;
-
-export const FETCH_WEATHER = 'FETCH_WEATHER';
-
-export default function fetchWeather(city){
-    const url = `${ROOT_URL}&q=${city},us`;
+function fetchAllSavingGroups(){
+    const url = `http://localhost:3000/api/saving-group`;
     const request = axios.get(url);
 
     return{
-        type: FETCH_WEATHER,
+        type: actionTypes.FETCH_ALL_SAVING_GROUPS,
         payload: request
     }
+}
+
+export default {
+    fetchAllSavingGroups
 }
