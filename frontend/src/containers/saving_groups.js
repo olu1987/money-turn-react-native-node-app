@@ -1,28 +1,35 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import {fetchAllSavingGroups} from '../actions';
+import actions from '../actions';
 
 class SavingGroups extends Component {
     constructor(props){
         super(props);
+        this.props.fetchAllSavingGroups();
     }
+
+    componentDidMount() {
+
+    }
+
     render() {
+        console.log(this.props);
         return (
           <div>Hello Money Turns</div>
         )
     }
-
-    onFormSubmit(event){
-        event.preventDefault();
-
-        this.props.fetchWeather(this.state.term);
-        this.setState({ term: ''})
-    }
 }
+
+const mapStateToProps = state => {
+    return {
+        savingGroups: state.savingGroups
+    }
+  }
 
 function mapDispatchToProps(dispatch) {
-    return bindActionCreators({fetchAllSavingGroups} , dispatch)
+    const fetchAllSavingGroups = actions.fetchAllSavingGroups;
+    return bindActionCreators( { fetchAllSavingGroups } , dispatch)
 }
 
-export  default connect(null, mapDispatchToProps)(SavingGroups);
+export default connect(mapStateToProps, mapDispatchToProps)(SavingGroups);
